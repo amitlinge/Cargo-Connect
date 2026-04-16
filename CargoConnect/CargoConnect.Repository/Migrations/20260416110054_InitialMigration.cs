@@ -29,6 +29,9 @@ namespace CargoConnect.Repository.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_drivers", x => x.Id);
+                    table.UniqueConstraint("UK_Email", x => x.Email);
+                    table.UniqueConstraint("UK_Phone", x => x.Phone);
+                    table.UniqueConstraint("UK_LicenseNumber", x => x.LicenseNumber);
                 });
 
             migrationBuilder.CreateTable(
@@ -48,6 +51,8 @@ namespace CargoConnect.Repository.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_users", x => x.Id);
+                    table.UniqueConstraint("UK_Email", x => x.Email);
+                    table.UniqueConstraint("UK_Phone", x => x.Phone);
                 });
         }
 

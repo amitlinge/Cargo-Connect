@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CargoConnect.Repository.Data;
+using CargoConnect.Repository.Repositories.Implementations;
+using CargoConnect.Repository.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +20,8 @@ namespace CargoConnect.Application.Infrastructure.RegisterServices
             {
                 options.UseSqlServer(config.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
         }
     }
 }

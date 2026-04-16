@@ -13,7 +13,7 @@ namespace CargoConnect.Repository.Data
         public CargoConnectDbContext(DbContextOptions<CargoConnectDbContext> options) : base(options)
         {
         }
-        
+
         public DbSet<UserEntity> users { get; set; }
         public DbSet<DriverEntity> drivers{ get; set; }
     }
