@@ -19,10 +19,10 @@ namespace CargoConnect.Application.DTOs.Booking
         public Guid DriverId { get; set; }
 
         [Required(ErrorMessage = "Pickup location is required")]
-        [MinLength(10, ErrorMessage = "Pickup location must be at least 10 characters")]
+        [MinLength(2, ErrorMessage = "Pickup location must be at least 2 characters")]
         public string PickupLocation { get; set; }
 
-        [MinLength(3, ErrorMessage = "Drop location must be at least 3 characters")]
+        [MinLength(2, ErrorMessage = "Drop location must be at least 2 characters")]
         public string DropLocation { get; set; }
 
         [Range(1, double.MaxValue, ErrorMessage = "Distance must be greater than 0")]
