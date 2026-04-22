@@ -24,13 +24,14 @@ public class DriverCreateDTO
     [MinLength(6)]
     [MaxLength(20)]
     [RegularExpression(
-        @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).{6,}$",
+        @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$",
         ErrorMessage = "Password must contain uppercase, lowercase, number and special character"
     )]
     public string Password { get; set; } = string.Empty;
 
     [Required(ErrorMessage = "License number is required")]
-    [MinLength(5)]
-    [MaxLength(20)]
+    [MinLength(5, ErrorMessage = "License number must be at least 5 characters")]
+    [MaxLength(20, ErrorMessage = "License number must be at most 20 characters")]
+    [RegularExpression("^[A-Z]{2}[ -]?[0-9]{2}[ -]?[A-Z]{1,2}[ -]?[0-9]{4}$", ErrorMessage = "Invalid license number format")]
     public string LicenseNumber { get; set; } = string.Empty;
 }
