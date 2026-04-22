@@ -19,7 +19,7 @@ namespace CargoConnect.Application.Services.Implementations
 
         public TDest Map<TSource, TDest>(TSource source)
         {
-            return _mapper.Map<TSource, TDest>(source);
+            return _mapper.Map<TDest>(source);
         }
 
         public List<TDest> MapList<TSource, TDest>(List<TSource> sources)
