@@ -1,4 +1,4 @@
-﻿using CargoConnect.Application.Services.Interfaces;
+﻿using CargoConnect.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CargoConnect.API.Controllers

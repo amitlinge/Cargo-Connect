@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CargoConnect.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace CargoConnect.Repository.Data
+namespace CargoConnect.Infrastructure.Persistence.Data
 {
     public class CargoConnectDbContext : DbContext
     {

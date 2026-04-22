@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CargoConnect.Application.Services.Interfaces;
+using CargoConnect.Application.Interfaces.ExternalServices;
+using CargoConnect.Application.Interfaces.Repositories;
+using CargoConnect.Application.Interfaces.Services;
 using CargoConnect.Domain.Entities;
-using CargoConnect.Repository.Repositories.Interfaces;
 
-namespace CargoConnect.Application.Services.Implementations
+namespace CargoConnect.Application.Services
 {
     public class DriverService : IDriverService
     {

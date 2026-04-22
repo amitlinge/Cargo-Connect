@@ -1,5 +1,6 @@
-using CargoConnect.Application.Infrastructure.RegisterServices;
+using CargoConnect.Application.DependencyInjection;
 using CargoConnect.Application.Utilities.MappingProfiles;
+using CargoConnect.Infrastructure.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ builder.Services.AddAutoMapper(config =>
 });
 
 builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
 var app = builder.Build();
 

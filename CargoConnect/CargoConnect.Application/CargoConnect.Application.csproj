@@ -16,7 +16,6 @@
   <ItemGroup>
     <ProjectReference Include="..\CargoConnect.Common\CargoConnect.Common.csproj" />
     <ProjectReference Include="..\CargoConnect.Domain\CargoConnect.Domain.csproj" />
-    <ProjectReference Include="..\CargoConnect.Repository\CargoConnect.Repository.csproj" />
   </ItemGroup>
 
 </Project>

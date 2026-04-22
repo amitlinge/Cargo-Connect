@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using CargoConnect.Application.Services.Interfaces;
+using CargoConnect.Application.Interfaces.ExternalServices;
 
-namespace CargoConnect.Application.Services.Implementations
+namespace CargoConnect.Infrastructure.ExternalServices
 {
     public class AutoMapperService : IMappingService
     {

@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CargoConnect.Application\CargoConnect.Application.csproj" />
     <ProjectReference Include="..\CargoConnect.Common\CargoConnect.Common.csproj" />
     <ProjectReference Include="..\CargoConnect.Domain\CargoConnect.Domain.csproj" />
   </ItemGroup>

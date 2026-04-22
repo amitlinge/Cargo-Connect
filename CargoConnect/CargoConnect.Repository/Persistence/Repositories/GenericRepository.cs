@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CargoConnect.Repository.Data;
-using CargoConnect.Repository.Repositories.Interfaces;
+using CargoConnect.Infrastructure.Persistence.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using CargoConnect.Application.Interfaces.Repositories;
 
-namespace CargoConnect.Repository.Repositories.Implementations
+namespace CargoConnect.Infrastructure.Persistence.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {

@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using CargoConnect.Application.Services.Interfaces;
+using CargoConnect.Application.Interfaces.ExternalServices;
+using CargoConnect.Application.Interfaces.Repositories;
+using CargoConnect.Application.Interfaces.Services;
 using CargoConnect.Domain.Entities;
-using CargoConnect.Repository.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace CargoConnect.Application.Services.Implementations
+namespace CargoConnect.Application.Services
 {
     public class UserService : IUserService
     {

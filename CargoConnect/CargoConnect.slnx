@@ -4,5 +4,5 @@
   <Project Path="CargoConnect.Common/CargoConnect.Common.csproj" />
   <Project Path="CargoConnect.Domain/CargoConnect.Domain.csproj" />
   <Project Path="CargoConnect.MVC.Client/CargoConnect.MVC.Client.csproj" />
-  <Project Path="CargoConnect.Repository/CargoConnect.Repository.csproj" />
+  <Project Path="CargoConnect.Repository/CargoConnect.Infrastructure.csproj" />
 </Solution>

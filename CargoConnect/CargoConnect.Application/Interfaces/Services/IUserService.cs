@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CargoConnect.Application.Services.Interfaces
+namespace CargoConnect.Application.Interfaces.Services
 {
     public interface IUserService
     {
