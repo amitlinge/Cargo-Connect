@@ -21,12 +21,6 @@ namespace CargoConnect.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<bool> CreateAsync(DriverCreateDTO driverCreateDto)
-        {
-            bool status = await _driverRepository.CreateAsync(_mapper.Map<DriverCreateDTO, DriverEntity>(driverCreateDto));
-            return status;
-        }
-
         public async Task<bool> DeleteAsync(Guid id)
         {
             bool status = await _driverRepository.DeleteAsync(id);
