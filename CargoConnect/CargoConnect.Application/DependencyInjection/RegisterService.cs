@@ -33,6 +33,9 @@ namespace CargoConnect.Application.DependencyInjection
 
             //Booking Services
             services.AddScoped<IBookingService, BookingService>();
+
+            //auth service
+            services.AddScoped<IAuthService, AuthService>();
         }
     }
 }

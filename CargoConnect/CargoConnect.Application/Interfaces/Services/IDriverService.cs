@@ -10,7 +10,6 @@ namespace CargoConnect.Application.Interfaces.Services
     {
         Task<List<DriverViewDTO>> GetAllAsync();
         Task<DriverViewDTO> GetByIdAsync(Guid id);
-        Task<bool> CreateAsync(DriverCreateDTO driverCreateDto);
         Task<bool> UpdateAsync(DriverUpdateDTO driverUpdateDto);
         Task<bool> DeleteAsync(Guid id);
     }

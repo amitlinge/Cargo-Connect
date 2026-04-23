@@ -7,20 +7,18 @@ namespace CargoConnect.API.Controllers
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        private readonly IUserService _userService;
-        private readonly IDriverService _driverService;
+        private readonly IAuthService _authService;
 
-        public AuthController(IUserService userService, IDriverService driverService)
+        public AuthController(IAuthService authService)
         {
-            _userService = userService;
-            _driverService = driverService;
+            _authService = authService;
         }
 
         // POST: api/auth/register/user
         [HttpPost("register/user")]
         public async Task<IActionResult> RegisterUser(UserCreateDTO dto)
         {
-            var result = await _userService.CreateAsync(dto);
+            var result = await _authService.RegisterUser(dto);
 
             if (result == null)
                 return BadRequest("User registration failed");
@@ -32,7 +30,7 @@ namespace CargoConnect.API.Controllers
         [HttpPost("register/driver")]
         public async Task<IActionResult> RegisterDriver(DriverCreateDTO dto)
         {
-            var result = await _driverService.CreateAsync(dto);
+            var result = await _authService.RegisterDriver(dto);
 
             if (result == null)
                 return BadRequest("Driver registration failed");
