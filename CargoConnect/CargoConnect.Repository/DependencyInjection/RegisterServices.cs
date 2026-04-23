@@ -11,6 +11,7 @@ using CargoConnect.Application.Services;
 using CargoConnect.Infrastructure.ExternalServices;
 using CargoConnect.Infrastructure.Persistence.Data;
 using CargoConnect.Infrastructure.Persistence.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,6 +31,12 @@ namespace CargoConnect.Infrastructure.DependencyInjection
 
             //Mapping Service
             services.AddScoped<IMappingService, AutoMapperService>();
+
+            //password hasher service
+            services.AddScoped<PasswordHasher<string>>();
+
+            //password service
+            services.AddScoped<IPasswordService, PasswordService>();
         }
     }
 }
