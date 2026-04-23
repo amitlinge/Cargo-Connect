@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CargoConnect.Common\CargoConnect.Common.csproj" />
+  </ItemGroup>
+
 </Project>
