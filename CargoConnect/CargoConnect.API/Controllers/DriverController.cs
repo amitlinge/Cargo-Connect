@@ -33,7 +33,7 @@ namespace CargoConnect.API.Controllers
             return Ok(driver);
         }
 
-        [HttpPost("Create-Driver")]
+        [HttpPost("Add-Driver")]
         public async Task<IActionResult> Create([FromBody] DriverCreateDTO driverCreateDto)
         {
             if (ModelState.IsValid)

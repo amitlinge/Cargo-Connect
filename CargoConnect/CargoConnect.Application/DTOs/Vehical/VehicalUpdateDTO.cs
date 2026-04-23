@@ -9,6 +9,7 @@ namespace CargoConnect.Application.DTOs.Vehical
 {
     public class VehicalUpdateDTO
     {
+        public Guid Id { get; set; }
         [Range(0.1, 100, ErrorMessage = "Length must be greater than 0")]
         public double? Length { get; set; }
 
