@@ -47,4 +47,4 @@ namespace CargoConnect.API.Controllers
             return NoContent(); // Best practice
         }
     }
-}s
+}
