@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CargoConnect.API.Controllers
 {
     [ApiController]
+    [Route("Api/[controller]")]
     public class VehicalController : ControllerBase
     {
         IVehicalService _vehicalsService;
