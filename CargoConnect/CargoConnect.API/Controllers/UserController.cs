@@ -1,51 +1,50 @@
-﻿using CargoConnect.Application.Interfaces.Repositories;
-using CargoConnect.Application.Interfaces.Services;
-using CargoConnect.Domain.Entities;
+﻿using CargoConnect.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CargoConnect.API.Controllers
 {
     [ApiController]
-    [Route("Api/[controller]")]
+    [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        IUserService _userService;
+        private readonly IUserService _userService;
 
         public UserController(IUserService userService)
         {
             _userService = userService;
         }
 
-        [HttpGet("Get-All-Users")]
+        // GET: api/users
+        [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
             var users = await _userService.GetAllAsync();
-            if (users != null)
-                return Ok(users);
 
-            return NotFound();
+            return Ok(users); // Always return list (even empty)
         }
 
-        [HttpGet("Get-User-{id}")]
-        public async Task<IActionResult> GetByIdAsync([FromRoute]Guid id)
+        // GET: api/users/{id}
+        [HttpGet("{id:guid}")]
+        public async Task<IActionResult> GetByIdAsync(Guid id)
         {
             var user = await _userService.GetByIdAsync(id);
 
-            if (user != null)
-                return Ok(user);
+            if (user == null)
+                return NotFound();
 
-            return NotFound();
+            return Ok(user);
         }
 
-        [HttpDelete("Delete-user-{id}")]
-        public async Task<IActionResult> DeleteAsync([FromRoute] Guid id)
+        // DELETE: api/users/{id}
+        [HttpDelete("{id:guid}")]
+        public async Task<IActionResult> DeleteAsync(Guid id)
         {
-            bool status = await _userService.DeleteAsync(id);
+            var isDeleted = await _userService.DeleteAsync(id);
 
-            if (status)
-                return Ok();
+            if (!isDeleted)
+                return NotFound();
 
-            return NotFound();
+            return NoContent(); // Best practice
         }
     }
 }

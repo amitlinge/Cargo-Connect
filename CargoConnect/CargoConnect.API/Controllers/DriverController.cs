@@ -8,21 +8,22 @@ namespace CargoConnect.API.Controllers
     [ApiController]
     public class DriverController : ControllerBase
     {
-        IDriverService _driverService;
+        private readonly IDriverService _driverService;
 
         public DriverController(IDriverService driverService)
         {
             _driverService = driverService;
         }
 
-        [HttpGet("Get-Drivers")]
+        //GET: api/drivers
+        [HttpGet()]
         public async Task<IActionResult> GetAll()
         {
             var drivers = await _driverService.GetAllAsync();
             return Ok(drivers);
         }
 
-        [HttpGet("Get-Driver-By-{id}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> Details(Guid id)
         {
             var driver = await _driverService.GetByIdAsync(id);
@@ -33,6 +34,7 @@ namespace CargoConnect.API.Controllers
             return Ok(driver);
         }
 
+        //PUT: api/drivers
         [Obsolete("currently unavailable",true)]
         [HttpPut]
         public async Task<IActionResult> Update(DriverUpdateDTO driverUpdatedto)
@@ -49,7 +51,8 @@ namespace CargoConnect.API.Controllers
             return BadRequest();
         }
 
-        [HttpDelete("Delete-Driver-By-{id}")]
+        //DELETE: api/drivers
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             bool status = await _driverService.DeleteAsync(id);

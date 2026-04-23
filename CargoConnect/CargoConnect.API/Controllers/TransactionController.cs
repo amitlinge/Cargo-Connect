@@ -9,20 +9,22 @@ namespace CargoConnect.API.Controllers
     [ApiController]
     public class TransactionController : ControllerBase
     {
-        ITransactionService _transactionService;
+        private readonly ITransactionService _transactionService;
         public TransactionController(ITransactionService transactionService)
         {
             _transactionService = transactionService;
         }
 
-        [HttpGet("Get-Transactions")]
+        //GET: api/transactions
+        [HttpGet()]
         public async Task<IActionResult> GetAll()
         {
             var transactions = await _transactionService.GetAllAsync();
             return Ok(transactions);
         }
 
-        [HttpGet("Get-Transaction-By-{id}")]
+        //GET: api/transactions/{id}
+        [HttpGet("{id}")]
         public async Task<IActionResult> Details(Guid id)
         {
             var transaction = await _transactionService.GetByIdAsync(id);
@@ -31,7 +33,8 @@ namespace CargoConnect.API.Controllers
             return Ok(transaction);
         }
 
-        [HttpPost("Create-Transaction")]
+        //POST: api/transactions
+        [HttpPost()]
         public async Task<IActionResult> Create([FromBody]TransactionCreateDTO transactionCreateDto)
         {
             if (ModelState.IsValid)
@@ -46,7 +49,8 @@ namespace CargoConnect.API.Controllers
             return BadRequest();
         }
 
-        [HttpDelete("Delete-Transaction-By-{id}")]
+        //DELETE: api/Transactions
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             bool status = await _transactionService.DeleteAsync(id);

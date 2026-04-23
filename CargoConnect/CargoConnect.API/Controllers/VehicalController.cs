@@ -8,15 +8,16 @@ namespace CargoConnect.API.Controllers
     [Route("Api/[controller]")]
     public class VehicalController : ControllerBase
     {
-        IVehicalService _vehicalsService;
+        private readonly IVehicalService _vehicalsService;
 
         public VehicalController(IVehicalService vehicalsService)
         {
             _vehicalsService = vehicalsService;
         }
 
-        [HttpGet("Get-Vehicals")]
-        public async Task<IActionResult> Index()
+        // GET: api/vehicals
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
         {
             var vehicals = await _vehicalsService.GetAllAsync();
             if(vehicals != null)
@@ -26,7 +27,8 @@ namespace CargoConnect.API.Controllers
             return NotFound();
         }
 
-        [HttpGet("Get-Vehical-{id}")]
+        // GET: api/vehicals/{id}
+        [HttpGet("{id:Guid}")]
         public async Task<IActionResult> GetById([FromRoute] Guid id)
         {
             var vehical = await _vehicalsService.GetByIdAsync(id);
@@ -37,7 +39,8 @@ namespace CargoConnect.API.Controllers
             return NotFound();
         }
 
-        [HttpPost("Add-Vehical")]
+        //POST: api/vehicals
+        [HttpPost()]
         public async Task<IActionResult> CreateVehical([FromBody] VehicalCreateDTO vehicalCreateDTO)
         {
             if(ModelState.IsValid)
@@ -52,7 +55,8 @@ namespace CargoConnect.API.Controllers
             return BadRequest();
         }
 
-        [HttpDelete("Delete-vehical-details-{id}")]
+        //DELETE: api/vehicals
+        [HttpDelete("{id:Guid}")]
         public async Task<IActionResult> DeleteVehical([FromRoute] Guid id)
         {
             bool status = await _vehicalsService.DeleteAsync(id);
